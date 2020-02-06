@@ -33,9 +33,15 @@ public class Server {
 				cd.setFlag(flag); //lo comunico anche al thread in esecuzione per fermare il countdown
 				System.out.println("Connessione stabilita");
 				
+				
+				InputStreamReader r=new InputStreamReader(System.in);  
+				BufferedReader buff=new BufferedReader(r);  
+				System.out.println("Enter your message: ");  
+				String msgout=buff.readLine();  
+				
 				// to send data to the client 
 				PrintStream ps = new PrintStream(connessione.getOutputStream());
-				ps.println("hey");
+				ps.println(msgout);
 				//Once accepted 
 				InputStreamReader isr = new InputStreamReader(connessione.getInputStream());
 				BufferedReader br = new BufferedReader(isr);

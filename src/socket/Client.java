@@ -21,6 +21,13 @@ public class Client {
             connessione = new Socket(server,porta);
             System.out.println("connesione aperta");
 	    
+	    
+		InputStreamReader r=new InputStreamReader(System.in);  
+		BufferedReader buff=new BufferedReader(r);  
+		System.out.println("Enter your message: ");  
+		String msgout=buff.readLine();  
+				
+	    
 		//Once accepted 
 		InputStreamReader isr = new InputStreamReader(connessione.getInputStream());
 		BufferedReader br = new BufferedReader(isr);
@@ -28,7 +35,7 @@ public class Client {
 		System.out.println("Il server mi ha detto... " + message + " :O");
 		// to send data to the client 
 		PrintStream ps = new PrintStream(connessione.getOutputStream());
-		ps.println("sciao");
+		ps.println(msgout);
 	    
             connessione.close();
             System.out.println("connesione chiusa");
