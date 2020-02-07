@@ -27,15 +27,15 @@ public class Client {
 		System.out.println("Enter your message: ");  
 		String msgout=buff.readLine();  
 				
-	    
+		// to send data to the client 
+		PrintStream ps = new PrintStream(connessione.getOutputStream());
+		ps.println(msgout);
 		//Once accepted 
 		InputStreamReader isr = new InputStreamReader(connessione.getInputStream());
 		BufferedReader br = new BufferedReader(isr);
 		String message = br.readLine();
 		System.out.println("Il server mi ha detto... " + message + " :O");
-		// to send data to the client 
-		PrintStream ps = new PrintStream(connessione.getOutputStream());
-		ps.println(msgout);
+		
 	    
             connessione.close();
             System.out.println("connesione chiusa");
