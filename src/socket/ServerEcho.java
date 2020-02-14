@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package socket;
-
+import java.io.*;
+import java.net.*;
 /**
  *
  * @author informatica
  */
 public class ServerEcho extends Thread{
+	
+	private Socket connessione;
 	
 }
